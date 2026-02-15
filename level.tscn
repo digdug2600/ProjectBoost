@@ -41,7 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.46877, 0, 0)
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_c6vq3")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="LandingPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40212, 0, 0)
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_b2mqn")

@@ -12,3 +12,10 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_pressed("Rotate Right"):
 		apply_torque(Vector3(0.0, 0.0, -100.0 * delta))
+
+func _on_body_entered(body: Node) -> void:
+	if "Goal" in body.get_groups():
+		print("You Win!")
+		
+	if "Hazard" in body.get_groups():
+		print("You Crashed!")

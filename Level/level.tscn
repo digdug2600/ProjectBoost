@@ -33,7 +33,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_dva1a")
 
-[node name="Floor" type="CSGBox3D" parent="."]
+[node name="Floor" type="CSGBox3D" parent="." groups=["Hazard"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
 use_collision = true
 size = Vector3(30, 8, 5)
@@ -45,7 +45,7 @@ use_collision = true
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_c6vq3")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
+[node name="LandingPad" type="CSGBox3D" parent="." groups=["Goal"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.40212, 0, 0)
 use_collision = true
 size = Vector3(2, 0.4, 2)

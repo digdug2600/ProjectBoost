@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3ljf7npdx7i0"]
+[gd_scene load_steps=10 format=3 uid="uid://b3ljf7npdx7i0"]
 
 [ext_resource type="Script" path="res://Level/LandingPad.gd" id="1_xqcgg"]
 [ext_resource type="PackedScene" uid="uid://dk28hya1xkqby" path="res://player.tscn" id="2_0r31i"]
@@ -18,6 +18,9 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_psntk"]
 albedo_color = Color(0.533333, 0.345098, 0.192157, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7t5d"]
+albedo_color = Color(0.992157, 0.317647, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6vq3"]
 albedo_color = Color(0.109804, 0.439216, 0.737255, 1)
@@ -40,6 +43,12 @@ use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_psntk")
 
+[node name="Obstable" type="CSGBox3D" parent="." groups=["Hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.03952, 0)
+use_collision = true
+size = Vector3(3, 2, 5)
+material = SubResource("StandardMaterial3D_n7t5d")
+
 [node name="LaunchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.46877, 0, 0)
 use_collision = true
@@ -52,7 +61,7 @@ use_collision = true
 size = Vector3(2, 0.4, 2)
 material = SubResource("StandardMaterial3D_b2mqn")
 script = ExtResource("1_xqcgg")
-file_path = "res://Level/level.tscn"
+file_path = "res://Level/level_3.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.986286, 0.165048, 0, -0.165048, 0.986286, -0.035, 6.255, 8.76)

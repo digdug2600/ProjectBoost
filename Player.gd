@@ -24,7 +24,9 @@ func _on_body_entered(body: Node) -> void:
 		
 func crash_sequence() -> void:
 	print("KABOOM!")
-	get_tree().reload_current_scene()
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().reload_current_scene)
 	
 func complete_level(next_level_file: String) -> void:
 	print("Level Complete!")

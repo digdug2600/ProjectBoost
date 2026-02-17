@@ -4,6 +4,8 @@ extends RigidBody3D
 
 @export var torque_thrust: float = 100.0
 
+var is_transitioning: bool = false
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("Boost"):
@@ -16,14 +18,17 @@ func _process(delta: float) -> void:
 		apply_torque(Vector3(0.0, 0.0, -torque_thrust * delta))
 
 func _on_body_entered(body: Node) -> void:
-	if "Goal" in body.get_groups():
-		complete_level(body.file_path)
-		
-	if "Hazard" in body.get_groups():
-		crash_sequence()
+	if is_transitioning == false:
+		if "Goal" in body.get_groups():
+			complete_level(body.file_path)
+			
+		if "Hazard" in body.get_groups():
+			crash_sequence()
 		
 func crash_sequence() -> void:
 	print("KABOOM!")
+	is_transitioning = true
+	set_process(false)
 	var tween = create_tween()
 	tween.tween_interval(1.0)
 	tween.tween_callback(get_tree().reload_current_scene)
